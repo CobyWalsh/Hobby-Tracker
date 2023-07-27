@@ -1,0 +1,35 @@
+{
+  "name": "hobby-tracker",
+  "version": "1.0.0",
+  "description": "A Simple Project Tracker for Hobbyists",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "npx eslint **/*.js --quiet; exit 0",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CobyWalsh/Hobby-Tracker.git"
+  },
+  "author": "Adam Hansen, Nate Kester, Phillip Lam, Coby Walsh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CobyWalsh/Hobby-Tracker/issues"
+  },
+  "homepage": "https://github.com/CobyWalsh/Hobby-Tracker#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "mysql2": "^3.5.2",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.9.0",
+    "prettier": "^3.0.0"
+  }
+}
