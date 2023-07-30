@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { HobbyTracker } = require('.');
 
-class HobbyTracker extends Model {}
+class Note extends Model { };
 
 HobbyTracker.init(
   {
@@ -13,29 +12,26 @@ HobbyTracker.init(
       autoIncrement: true,
     },
     uuid: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
     },
     record_created: {
-        type: DataTypes.DATETIME,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+      type: DataTypes.TIMESTAMP,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     record_updated: {
-      type: DataTypes.DATETIME,
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
+      type: DataTypes.TIMESTAMP,
+      defaultValue: DataTypes.NOW,
     },
     fk_project: {
       type: DataTypes.CHAR(36),
-      },
-      fk_material: {
-        type: DataTypes.CHAR(36),
-        },
-        text: {
-            type: DataTypes.TEXT,
-            },
+    },
+    fk_material: {
+      type: DataTypes.CHAR(36),
+    },
+    text: {
+      type: DataTypes.TEXT,
     },
   },
   {
