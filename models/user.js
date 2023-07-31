@@ -6,7 +6,8 @@ class User extends Model {}
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      // Use an unsigned, auto-incremented integer as the primary key
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -15,9 +16,9 @@ User.init(
     record_uuid: {
       // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
       type: DataTypes.UUID,
-      allowNull: false,
-      // Allow Sequelize will generate a UUID upon record creation
+      // Generate a UUID upon record creation
       defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
       unique: true,
     },
     name: {
@@ -38,6 +39,7 @@ User.init(
     },
   },
   {
+    // Pass the connection instance
     sequelize,
     // Enable Sequelize built-in timestamps
     timestamps: true,
