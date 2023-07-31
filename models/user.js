@@ -20,16 +20,6 @@ User.init(
       defaultValue: DataTypes.UUIDV4,
       unique: true,
     },
-    record_created: {
-      type: DataTypes.TIMESTAMP,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    record_updated: {
-      type: DataTypes.TIMESTAMP,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     name: {
       type: DataTypes.VARCHAR(250),
       allowNull: false,
@@ -46,6 +36,12 @@ User.init(
   },
   {
     sequelize,
+    // Enable Sequelize built-in timestamps
+    timestamps: true,
+    // Use a custom name instead of createdOn
+    createdAt: 'record_created',
+    // Use a custom name instead of updatedOn
+    updatedAt: 'record_updated',
   },
 );
 
