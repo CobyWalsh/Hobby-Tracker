@@ -21,16 +21,19 @@ User.init(
       unique: true,
     },
     name: {
-      type: DataTypes.VARCHAR(250),
+      // Sequelize's DataTypes.STRING becomes VARCHAR(255) in MySQL
+      type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
-      type: DataTypes.VARCHAR(250),
+      // Sequelize's DataTypes.STRING becomes VARCHAR(255) in MySQL
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     password: {
-      type: DataTypes.VARCHAR(250),
+      // Sequelize's DataTypes.STRING becomes VARCHAR(255) in MySQL
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
