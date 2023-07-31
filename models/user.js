@@ -13,8 +13,11 @@ User.init(
       unique: true,
     },
     record_uuid: {
-      type: DataTypes.CHAR(36),
+      // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
+      type: DataTypes.UUID,
       allowNull: false,
+      // Allow Sequelize will generate a UUID upon record creation
+      defaultValue: DataTypes.UUIDV4,
       unique: true,
     },
     record_created: {
