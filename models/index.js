@@ -46,7 +46,6 @@ Material.hasMany(Note, {
 
 Note.belongsTo(Material, {
   foreignKey: 'fk_material',
-  onDelete: 'CASCADE',
-})
+});
 
 module.exports = { Image, Material, Note, Project, User };
