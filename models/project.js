@@ -56,7 +56,6 @@ project.init (
       },
       date_completed: {
         type: DataTypes.DATE,
-        allowNull: false,
       },
     },
   },

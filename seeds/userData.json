@@ -1,12 +1,21 @@
 [
     {
-      "name": "test",
-      "email": "test@hotmail.com",
-      "password": "password12345"
+      "record_uuid": "2111111-2222-3333-4444-555555555555",
+      "name": "Adam",
+      "email": "adamiscool@gmail.com",
+      "password": "Adampopnlock98"
     },
     {
-      "name": "test2",
-      "email": "test2@gmail.com",
-      "password": "password212345"
+        "record_uuid": "3111111-2222-3333-4444-555555555555",
+        "name": "Coby",
+        "email": "cobylikestocode@gmail.com",
+        "password": "Cobyay98"
+     },
+    {
+        "record_uuid": "4111111-2222-3333-4444-555555555555",
+        "name": "Philip",
+        "email": "philipwantstobewizard@gmail.com",
+        "password": "philippippins98"
     }
   ]
+  

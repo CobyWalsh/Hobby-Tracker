@@ -1,0 +1,26 @@
+[
+  {
+    "record_uuid": "1211111-2222-3333-4444-555555555555",
+    "name": "Crochet",
+    "description": "How do you even spell it correctly?",
+    "status": "In progress",
+    "date_start": "August 1, 2023 9:00:00",
+    "date_due": "August 31, 2023 9:00:00"
+  },
+  {
+    "record_uuid": "13111111-2222-3333-4444-555555555555",
+    "name": "Basement Framing",
+    "description": "3 exterior walls and one bathroom wall",
+    "status": "In progress",
+    "date_start": "August 1, 2023 9:00:00",
+    "date_due": "August 31, 2023 9:00:00"
+  },
+  {
+    "record_uuid": "14111111-2222-3333-4444-555555555555",
+    "name": "Knitting",
+    "description": "Knitting a realistic portrait of Adam",
+    "status": "In progress",
+    "date_start": "August 1, 2023 9:00:00",
+    "date_due": "August 31, 2023 9:00:00"
+  }
+]
