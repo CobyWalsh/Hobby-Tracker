@@ -6,11 +6,19 @@ const User = require('./user.js');
 
 User.hasMany(Project, {
   foreignKey: 'fk_user',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Project.belongsTo(User, {
-  foreignKey: 'fk_user'
+  foreignKey: 'fk_user',
+});
+
+Image.belongsTo(Project, {
+  foreignKey: 'fk_project',
+});
+
+Image.belongsTo(Material, {
+  foreignKey: 'fk_material',
 });
 
 module.exports = { Image, Material, Note, Project, User };
