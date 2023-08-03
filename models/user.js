@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {}
@@ -31,14 +32,21 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
     password: {
       // Sequelize's DataTypes.STRING becomes VARCHAR(255) in MySQL
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [10],
+      },
     },
   },
   {
+    // TODO: #68 Implement bcrypt in hooks with beforeCreate and beforeUpdate functions
     // Pass the connection instance
     sequelize,
     // Enable Sequelize built-in timestamps
