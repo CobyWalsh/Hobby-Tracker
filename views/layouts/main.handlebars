@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobby Tracker</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <!-- Include the header using a partial -->
+  {{> header}}
+
+  <!-- Render the content from other templates -->
+  {{{body}}}
+
+  <!-- Include the footer using a partial -->
+  {{> footer}}
+
+  {{#if logged_in}}
+    <script src="/public/js/logout.js"></script>
+  {{/if}}
+
+</body>
+
+</html>
