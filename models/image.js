@@ -24,10 +24,18 @@ Image.init(
     fk_project: {
       // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
       type: DataTypes.UUID,
+      references: {
+        model: 'Project',
+        key: 'record_uuid',
+      },
     },
     fk_material: {
       // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
       type: DataTypes.UUID,
+      references: {
+        model: 'Material',
+        key: 'record_uuid',
+      },
     },
     name: {
       // Sequelize's DataTypes.STRING becomes VARCHAR(255) in MySQL
