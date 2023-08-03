@@ -25,7 +25,7 @@ Image.init(
       // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
       type: DataTypes.UUID,
       references: {
-        model: 'Project',
+        model: 'Projects',
         key: 'record_uuid',
       },
     },
@@ -33,7 +33,7 @@ Image.init(
       // Sequelize's DataTypes.UUID becomes CHAR(36) in MySQL
       type: DataTypes.UUID,
       references: {
-        model: 'Material',
+        model: 'Materials',
         key: 'record_uuid',
       },
     },

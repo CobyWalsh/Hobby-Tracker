@@ -6,10 +6,10 @@ class Note extends Model {}
 Note.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
       unique: true,
     },
     record_uuid: {
@@ -21,14 +21,14 @@ Note.init(
     fk_project: {
       type: DataTypes.UUID,
       references: {
-        model: 'Project',
+        model: 'Projects',
         key: 'record_uuid',
       },
     },
     fk_material: {
       type: DataTypes.UUID,
       references: {
-        model: 'Material',
+        model: 'Materials',
         key: 'record_uuid',
       },
     },

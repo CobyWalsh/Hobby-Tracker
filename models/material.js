@@ -6,10 +6,11 @@ class Material extends Model {}
 Material.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      unique: true,
     },
     record_uuid: {
       type: DataTypes.UUID,
@@ -20,7 +21,7 @@ Material.init(
     fk_project: {
       type: DataTypes.UUID,
       references: {
-        model: 'Project',
+        model: 'Projects',
         key: 'record_uuid',
       },
     },

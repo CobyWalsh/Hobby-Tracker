@@ -6,7 +6,7 @@ class Project extends Model {}
 Project.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -21,7 +21,7 @@ Project.init(
     fk_user: {
       type: DataTypes.UUID,
       references: {
-        model: 'User',
+        model: 'Users',
         key: 'record_uuid',
       },
     },
