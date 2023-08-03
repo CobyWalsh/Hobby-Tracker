@@ -24,29 +24,25 @@ Project.init(
         model: 'User',
         key: 'record_uuid',
       },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      date_start: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      date_due: {
-        type: DataTypes.DATE,
-      },
-      date_completed: {
-        type: DataTypes.DATE,
-      },
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    status: {
+      type: DataTypes.STRING,
+    },
+    date_start: {
+      type: DataTypes.DATEONLY,
+    },
+    date_due: {
+      type: DataTypes.DATEONLY,
+    },
+    date_completed: {
+      type: DataTypes.DATEONLY,
     },
   },
   {
