@@ -27,7 +27,7 @@ const session = {
   // Load the session secret from the SESSION_SECRET variable in the .env file
   secret: process.env.SESSION_SECRET,
   cookie: {
-    // Set the maximum age for the cookie/session to be valid at 24 hours
+    // Set the maximum age for the cookie/session to be 24 hours
     maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
     secure: false,
@@ -39,6 +39,31 @@ const session = {
     db: sequelize,
   }),
 };
+
+// Import lines 47-66 from https://www.digitalocean.com/community/tutorials/nodejs-uploading-files-multer-express
+// and https://expressjs.com/en/resources/middleware/multer.html with additional code comments and
+// changes for Hobby Tracker by Adam Hansen
+
+// Use the multer.diskStorage() method to tell Express where to store files to the disk
+const storage = multer.diskStorage({
+  // TODO: Define the destination folder where multer will temporarily store uploaded files
+  destination: function (req, file, callback) {
+    callback(null, '/src/my-images');
+  },
+  // TODO: Define the name of the uploaded file within the destination folder
+  // TODO: Use the uuid package to uniquely name the uploaded file
+  // TODO: Use the gm package and an installed GraphicsMagick instance to convert and resize the uploaded file
+  // TODO: Use Node's built-in fs and path modules to save the converted and resized file to a permanent destination folder
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// End code from https://www.digitalocean.com/community/tutorials/nodejs-uploading-files-multer-express
+// and https://expressjs.com/en/resources/middleware/multer.html with additional code comments and
+// changes for Hobby Tracker by Adam Hansen
 
 app.use(expressSession(session));
 
