@@ -2,22 +2,28 @@
     {
       "uuid": "1112111-2222-3333-4444-555555555555",
       "record_updated": "August 1, 2023 9:00:00",
-      "fk_project": "Music Near Me",
-      "name": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-      "description": 5000,
-      "purchased_amt": "Music Near Me",
-      "purchased_date": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-      "purchased_place": 5000,
-      "purchased_price": "Music Near Me"
+      "name": "Red yarn",
+      "description": "Need 100 yards of red yarn to finnish.",
+      "purchased_amt": "109.96",
+      "purchased_place": "The red barn",
+      "purchased_price": "3.99"
     },
     {
-      "name": "The Ultimate Tech Quiz",
-      "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-      "needed_funding": 10000
+      "uuid": "1113111-2222-3333-4444-555555555555",
+      "record_updated": "August 2, 2023 9:00:00",
+      "name": "Lumber",
+      "description": "Need 50 2x4x8 footers for the exterior walls",
+      "purchased_amt": "300.96",
+      "purchased_place": "Dome Hepot",
+      "purchased_price": "3.56"
     },
     {
-      "name": "Roll 'Em Up",
-      "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-      "needed_funding": 800
+      "uuid": "1114111-2222-3333-4444-555555555555",
+      "record_updated": "August 3, 2023 9:00:00",
+      "name": "knitting needles",
+      "description": "Smaller needles needed for delicate features",
+      "purchased_amt": "56.96",
+      "purchased_place": "The camels eye",
+      "purchased_price": "56.96"
     }
   ]
