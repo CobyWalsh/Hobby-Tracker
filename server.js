@@ -1,3 +1,6 @@
+// Import and configure the dotenv package to load environment variables from the .env file
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const multer = require('multer');
@@ -15,7 +18,8 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: '',
+  // Load the session secret from the SESSION_SECRET variable in the .env file
+  secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
