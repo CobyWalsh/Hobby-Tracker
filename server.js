@@ -1,11 +1,16 @@
-// Import and configure the dotenv package to load environment variables from the .env file
-require('dotenv').config();
-
+// Import Node's built-in fs and path modules for working with files and directory or file paths
+const fs = require('fs');
 const path = require('path');
+
+// Import third-party package dependencies from the npm registry
+require('dotenv').config();
 const express = require('express');
+const expressHandlebars = require('express-handlebars');
+const expressSession = require('express-session');
+const gm = require('gm');
 const multer = require('multer');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
+const uuid = require('uuid');
+
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -15,9 +20,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+const handlebars = expressHandlebars.create({ helpers });
 
-const sess = {
+const session = {
   // Load the session secret from the SESSION_SECRET variable in the .env file
   secret: process.env.SESSION_SECRET,
   cookie: {
@@ -33,9 +38,9 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+app.use(expressSession(session));
 
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
