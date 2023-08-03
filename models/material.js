@@ -6,71 +6,51 @@ class Material extends Model {}
 Material.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      unique: true,
     },
-    uuid: {
+    record_uuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-    },
-    record_created: {
-      type: DataTypes.TIME,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    record_updated: {
-      type: DataTypes.TIME,
-      allowNull: false,
+      unique: true,
     },
     fk_project: {
-        type: DataTypes.TEXT,
-        references: {
-          model: 'Project',
-          key: 'uuid',
-        }
+      type: DataTypes.UUID,
+      references: {
+        model: 'Projects',
+        key: 'record_uuid',
+      },
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
-        type: DataTypes.TEXT,
-      },
+      type: DataTypes.TEXT,
+    },
     purchased_amt: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-        },
+      type: DataTypes.FLOAT,
+    },
     purchased_date: {
-        type: DataTypes.TIME,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-            },
+      type: DataTypes.DATEONLY,
+    },
     purchased_place: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
+      type: DataTypes.STRING,
+    },
     purchased_price: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-        },
-        
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+      type: DataTypes.FLOAT,
     },
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'material',
-  }
+    timestamps: true,
+    createdAt: 'record_created',
+    updatedAt: 'record_updated',
+  },
 );
 
 module.exports = Material;
