@@ -1,8 +1,7 @@
 [
     {
-      "uuid": "Music Near Me",
-      "record_created": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-      "record_updated": 5000,
+      "uuid": "1112111-2222-3333-4444-555555555555",
+      "record_updated": "August 1, 2023 9:00:00",
       "fk_project": "Music Near Me",
       "name": "A mobile app that will send you notifications whenever a concert is playing in your area.",
       "description": 5000,
