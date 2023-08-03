@@ -1,22 +1,20 @@
 [
   {
-    "uuid": "Music Near Me",
-    "record_created": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "record_updated": 5000,
-    "fk_project": "Music Near Me",
-    "fk_material": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "name": 5000,
-    "path": "Music Near Me",
-    "description": "text"
+    "uuid": "1111211-2222-3333-4444-555555555555",
+    "name": "Knitting progress!",
+    "path": "<insert_path_here>",
+    "description": "Just need to add red for the top!"
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    "uuid": "1111311-2222-3333-4444-555555555555",
+    "name": "Before: Exterior walls",
+    "path": "<insert_path_here>",
+    "description": "The 'before' I put up exterior walls, add after pic!"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "uuid": "1111411-2222-3333-4444-555555555555",
+    "name": "Adams beatiful mug!",
+    "path": "<insert_path_here>",
+    "description": "It's coming along nicely!"
   }
 ]

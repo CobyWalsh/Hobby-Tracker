@@ -25,7 +25,11 @@ Material.init(
       allowNull: false,
     },
     fk_project: {
-        type: DataTypes.TEXT
+        type: DataTypes.TEXT,
+        references: {
+          model: 'Project',
+          key: 'uuid',
+        }
     },
     name: {
         type: DataTypes.STRING,
