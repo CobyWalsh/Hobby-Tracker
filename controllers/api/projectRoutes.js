@@ -2,6 +2,23 @@ const router = require('express').Router();
 const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const user_id = req.session.user_id;
+
+    // Fetch projects from the database for the current user
+    const projects = await Project.findAll({
+      where: {
+        user_id,
+      },
+    });
+
+    res.render('dashboard', { projects });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
