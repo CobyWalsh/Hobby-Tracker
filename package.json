@@ -7,7 +7,7 @@
     "start": "node server.js",
     "lint": "npx eslint **/*.js --quiet; exit 0",
     "test": "npm run lint",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js" 
   },
   "repository": {
     "type": "git",
