@@ -18,7 +18,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_PASSWORD,
     {
       // Prevent connection problems on development computers running Windows and use the IP address of 127.0.0.1 instead of the hostname localhost
-      host: '127.0.0.1',
+      host: 'localhost',
       dialect: 'mysql',
       port: 3306
     }

@@ -1,0 +1,17 @@
+<!-- dashboard.handlebars -->
+<h1>My Dashboard</h1>
+
+{{#if projects.length}}
+  <div class="project-list">
+    {{#each projects}}
+      <div class="project">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        <p>Status: {{status}}</p>
+        <img src="{{primaryImage}}" alt="{{title}}">
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No projects found.</p>
+{{/if}}
