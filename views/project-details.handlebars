@@ -3,68 +3,188 @@
 </section>
 
 <div> 
-    <h1>Info</h1>
+    <h1>Images</h1>
     </div>
-      
-<section class="flex-row justify-center">
-    {{#each projects}}
-      <div class="project-card">
-        {{#if Image}}
-          <img src="{{Image.url}}" alt="{{name}}">
-        {{else}}
-          <p>No image available</p>
-        {{/if}}
-      </div>
-    {{/each}}
-  </section>
+{{!-- Image section --}}
+<section>
+  <section class="flex-row justify-center">
+    {{!-- display project images --}}
+      {{#each project}}
+        <div class="project-card">
+          {{#if Image}}
+            <img src="{{Image.url}}" alt="{{name}}">
+          {{else}}
+            <p>No image available</p>
+          {{/if}}
+        </div>
+      {{/each}}
+    </section>
 
-<section class="flex-row justify-center">
-    {{#each projects}}
-      <div class="project-card">
-        {{#if Image}}
-          <img src="{{Image.url}}" alt="{{name}}">
-        {{else}}
-          <p>No image available</p>
-        {{/if}}
-      </div>
-    {{/each}}
-  </section>
+  {{!-- display plus button for adding new project --}}
+  <button type="button" class="project-card add-new-card" data-bs-toggle="modal" data-bs-target="#addImageModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+      </button>
+</section>
 
-<a href="/add-project" class="project-card add-new-card">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
-  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-      </svg>
-    </a>
+
 
     <div> 
     <h1>Materials</h1>
     </div>
 
-    <section class="flex-row justify-center">
-    {{#each projects}}
-      <div class="project-card">
-        {{#if Materials}}
-        {{else}}
-          <p>No Materials available</p>
-        {{/if}}
-      </div>
-    {{/each}}
-  </section>
+<section>
+  {{!-- Display materials --}}
+      <section class="flex-row justify-center">
+      {{#each projects}}
+        <div class="project-card">
+          {{#if material}}
+          {{else}}
+            <p>No Materials available</p>
+          {{/if}}
+        </div>
+      {{/each}}
+    </section>
 
-  <section class="flex-row justify-center">
-    {{#each projects}}
-      <div class="project-card">
-        {{#if Materials}}
-        {{else}}
-          <p>No Materials available</p>
-        {{/if}}
-      </div>
-    {{/each}}
+{{!-- display plus button for adding new project --}}
+    <button type="button" class="project-card add-new-card" data-bs-toggle="modal" data-bs-target="#addMaterialModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+      </button>
   </section>
-
-  <a href="/add-project" class="project-card add-new-card">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
-  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-      </svg>
-    </a>
 </section>
+
+
+
+<div> 
+    <h1>Notes</h1>
+    </div>
+
+<section>
+  {{!-- Display Notes --}}
+      <section class="flex-row justify-center">
+      {{#each projects}}
+        <div class="project-card">
+          {{#if note}}
+          {{else}}
+            <p>No Notes available</p>
+          {{/if}}
+        </div>
+      {{/each}}
+    </section>
+
+{{!-- display plus button for adding new project --}}
+    <button type="button" class="project-card add-new-card" data-bs-toggle="modal" data-bs-target="#addNoteModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+      </button>
+  </section>
+</section>
+
+
+<!-- Add New image Modal -->
+<div class="modal fade" id="addImageModal" tabindex="-1" aria-labelledby="addImageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addImageModalLabel">Add New Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for adding a new image -->
+        <form action="/api/images" method="POST">
+          <div class="mb-3">
+            <label for="image-name" class="form-label">Image Name: </label>
+            <input class="form-control" id="image-name" name="image-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="path" class="form-label">Path: </label>
+            <textarea class="form-control" id="path" name="path" rows="4"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="project-description" class="form-label">Description: </label>
+            <textarea class="form-control" id="project-description" name="description" rows="4"></textarea>
+          </div>
+    
+          <!-- Add a hidden input field for the user UUID -->
+          <input type="hidden" name="fk_user" value="{{user.uuid}}">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add New Material Modal -->
+<div class="modal fade" id="addMaterialModal" tabindex="-1" aria-labelledby="addMaterialModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMaterialModalLabel">Add New Material</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for adding a new material -->
+        <form action="/api/materials" method="POST">
+          <div class="mb-3">
+            <label for="material-name" class="form-label">Material Name: </label>
+            <input class="form-control" id="material-name" name="material-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description: </label>
+            <textarea class="form-control" id="project-description" name="description" rows="4"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="purchased_amt" class="form-label">How many did you purhcase?: </label>
+            <textarea type="float" class="form-control" id="purchase-amt" name="amount"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="purchased_date" class="form-label">Purchase date: </label>
+            <textarea type="date" class="form-control" id="purchase-date" name="date" ></textarea>
+          </div>
+           <div class="mb-3">
+            <label for="purchased_place" class="form-label">Place of purchase: </label>
+            <textarea class="form-control" id="purchase-place" name="place" ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="purchased_price" class="form-label">Purchase price: </label>
+            <textarea type="float" class="form-control" id="purchase-price" name="price" ></textarea>
+          </div>
+    
+          <!-- Add a hidden input field for the user UUID -->
+          <input type="hidden" name="fk_user" value="{{user.uuid}}">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add New Note Modal -->
+<div class="modal fade" id="addNoteModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addNoteModalLabel">Add New Note</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for adding a new note -->
+        <form action="/api/notes" method="POST">
+          <div class="mb-3">
+            <label for="text" class="form-label">Add Note: </label>
+            <input class="form-control" id="note" name="note" required>
+          </div>
+    
+          <!-- Add a hidden input field for the user UUID -->
+          <input type="hidden" name="fk_user" value="{{user.uuid}}">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
