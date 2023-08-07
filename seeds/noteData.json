@@ -1,21 +1,14 @@
 [
   {
-    "uuid": "Music Near Me",
-    "record_created": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "record_updated": 5000,
-    "fk_project": "Music Near Me",
-    "fk_material": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "description": 5000,
-    "text": "Music Near Me"
+    "uuid": "1121111-2222-3333-4444-555555555555",
+    "text": "That is such a notable thing"
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    "uuid": "1131111-2222-3333-4444-555555555555",
+    "text": "This is lookin' superb!"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "uuid": "1141111-2222-3333-4444-555555555555",
+    "text": "That looks just like Adam!"
   }
 ]

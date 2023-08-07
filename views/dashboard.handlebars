@@ -1,0 +1,18 @@
+<h1>My Dashboard</h1>
+
+{{#if projects.length}}
+  <div class="project-list">
+    {{#each projects}}
+      <div class="project card">
+        <div class="card-body">
+          <h2 class="card-title">{{title}}</h2>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text">Status: {{status}}</p>
+          <img class="card-img-top" src="{{primaryImage}}" alt="{{title}}">
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No projects found.</p>
+{{/if}}

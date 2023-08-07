@@ -1,44 +1,35 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Note extends Model { };
+class Note extends Model {}
 
 Note.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
       unique: true,
     },
-    uuid: {
-      type: DataTypes.CHAR(36),
+    record_uuid: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       unique: true,
-    },
-    record_created: {
-      type: DataTypes.TIMESTAMP,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    record_updated: {
-      type: DataTypes.TIMESTAMP,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     fk_project: {
-      type: DataTypes.CHAR(36),
+      type: DataTypes.UUID,
       references: {
-        model: 'Project',
-        key: 'uuid', 
+        model: 'Projects',
+        key: 'record_uuid',
       },
     },
     fk_material: {
-      type: DataTypes.CHAR(36),
+      type: DataTypes.UUID,
       references: {
-        model: 'Material',
-        key: 'uuid', 
+        model: 'Materials',
+        key: 'record_uuid',
       },
     },
     text: {
@@ -48,8 +39,10 @@ Note.init(
   },
   {
     sequelize,
-    underscored: true,
-  }
+    timestamps: true,
+    createdAt: 'record_created',
+    updatedAt: 'record_updated',
+  },
 );
 
 module.exports = Note;

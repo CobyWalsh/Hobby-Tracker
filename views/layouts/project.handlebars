@@ -1,0 +1,76 @@
+<section class="container">
+  {{!-- Display Wecome and user name --}}
+  <h1>Welcome, {{user.name}}!</h1>
+  <h2>Your Projects:</h2>
+</section>
+
+{{!-- display project image, title underneath --}}
+<section class="flex-row justify-center">
+    {{#each projects}}
+      <div class="project-card">
+        {{!-- Display the image for the project --}}
+        {{#if Image}}
+          <img src="{{Image.url}}" alt="{{name}}">
+        {{else}}
+          <p>No image available</p>
+        {{/if}}
+        {{!-- Display project title --}}
+        <h3>{{name}}</h3>
+      </div>
+    {{/each}}
+  </section>
+</section>
+
+{{!-- additional card for adding new project --}}
+{{!-- Need to add correct route in href to correct page --}}
+<button type="button" class="project-card add-new-card" data-bs-toggle="modal" data-bs-target="#addProjectModal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-plus" viewBox="0 0 16 16">
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+    </button>
+  </section>
+</section>
+
+<!-- Add New Project Modal -->
+<div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProjectModalLabel">Add New Project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for adding a new project -->
+        <form action="/api/project" method="POST">
+          <div class="mb-3">
+            <label for="project-name" class="form-label">Project Name: </label>
+            <input type="text" class="form-control" id="project-name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="project-description" class="form-label">Description: </label>
+            <textarea class="form-control" id="project-description" name="description" rows="4"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="project-status" class="form-label">Status: </label>
+            <input type="text" class="form-control" id="project-status" name="status">
+          </div>
+          <div class="mb-3">
+            <label for="project-date-start" class="form-label">Start Date: </label>
+            <input type="date" class="form-control" id="project-date-start" name="date_start">
+          </div>
+          <div class="mb-3">
+            <label for="project-date-due" class="form-label">Due Date: </label>
+            <input type="date" class="form-control" id="project-date-due" name="date_due">
+          </div>
+          <div class="mb-3">
+            <label for="project-date-completed" class="form-label">Completion Date: </label>
+            <input type="date" class="form-control" id="project-date-completed" name="date_completed">
+          </div>
+          <!-- Add a hidden input field for the user UUID -->
+          <input type="hidden" name="fk_user" value="{{user.uuid}}">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
