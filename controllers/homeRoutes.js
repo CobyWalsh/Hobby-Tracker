@@ -1,6 +1,22 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
+
+const app = express();
+
+// // Set up view engine
+// app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+
+// ... other middleware and routes ...
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
 
 router.get('/', async (req, res) => {
   try {
@@ -60,7 +76,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('project', {
       ...user,
       logged_in: true
     });
