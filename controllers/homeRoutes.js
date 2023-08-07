@@ -5,14 +5,13 @@ const withAuth = require('../utils/auth');
 // Use withAuth middleware to prevent access to route if the user is not signed in
 router.get('/', withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    const fk_user = req.session.user_id;
+
+    // Get all projects from the database for the current user
     const projectData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      where: {
+        fk_user,
+      },
     });
 
     // Serialize data so the template can read it
