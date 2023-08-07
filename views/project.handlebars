@@ -7,15 +7,15 @@
 {{!-- display project image, title underneath --}}
 <section class="flex-row justify-center">
     {{#each projects}}
-      <div class="project-card">
+      <div class="project-card card">
         {{!-- Display the image for the project --}}
         {{#if Image}}
-          <img src="{{Image.url}}" alt="{{name}}">
+          <img src="{{Image.url}}" alt="{{name}}" class="card-img-top">
         {{else}}
-          <p>No image available</p>
+          <p class="card-text">No image available</p>
         {{/if}}
         {{!-- Display project title --}}
-        <h3>{{name}}</h3>
+        <h3 class="card-title">{{name}}</h3>
       </div>
     {{/each}}
   </section>
