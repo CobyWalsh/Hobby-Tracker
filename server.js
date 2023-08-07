@@ -36,7 +36,7 @@ const session = {
   }),
 };
 
-app.use(expressSession(session));
+// app.use(expressSession(session));
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -48,5 +48,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(port, () => console.log(`Server is listening on port ${port}`));
+  app.listen(port, () => console.log(`\nExpress is running and listening on port ${port}.`));
 });
