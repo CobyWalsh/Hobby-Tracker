@@ -1,23 +1,8 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
-const express = require('express');
-const path = require('path');
-const exphbs = require('express-handlebars');
 
-const app = express();
-
-// // Set up view engine
-// app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
-
-// ... other middleware and routes ...
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
-
+// Use withAuth middleware to prevent access to route if the user is not signed in
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -34,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
     const projects = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('project', { 
       projects, 
       logged_in: req.session.logged_in 
     });
@@ -43,29 +28,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Use withAuth middleware to prevent access to route
+// Use withAuth middleware to prevent access to route if the user is not signed in
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -86,12 +49,13 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
+    // Redirect the request to the home route if the user is already signed in
     res.redirect('/');
     return;
   }
 
+  // Render the login page if the user is not signed in
   res.render('homepage');
 });
 
