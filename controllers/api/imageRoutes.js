@@ -4,7 +4,7 @@ const path = require('path');
 
 const gm = require('gm');
 const multer = require('multer');
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 const { Image } = require('../../models');
 
@@ -22,7 +22,8 @@ const storage = multer.diskStorage({
   },
 
   filename: function (req, file, callback) {
-    callback(null, file.fieldname);
+    // Use the uuidv4 function deconstructed from the uuid package to generate a random UUID for the uploaded image name
+    callback(null, uuidv4());
   },
 });
 
@@ -34,7 +35,7 @@ const upload = multer({ storage: storage });
 
 // TODO: Create DELETE route
 // TODO: Create GET route
-// TODO: Create UPDATE Route
+// TODO: Create POST Route
 // TODO: Define the name of the uploaded file within the destination folder
 // TODO: Use the uuid package to uniquely name the uploaded file
 // TODO: Use the gm package and an installed GraphicsMagick instance to convert and resize the uploaded file
