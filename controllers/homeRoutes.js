@@ -1,8 +1,24 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
 
-router.get('/', async (req, res) => {
+const app = express();
+
+// // Set up view engine
+// app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+
+// ... other middleware and routes ...
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+router.get('/', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const projectData = await Project.findAll({
@@ -60,7 +76,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('project', {
       ...user,
       logged_in: true
     });
@@ -72,11 +88,11 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 
-  res.render('login');
+  res.render('homepage');
 });
 
 module.exports = router;

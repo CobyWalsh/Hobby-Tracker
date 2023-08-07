@@ -1,9 +1,9 @@
 // Import Node's built-in path module for working with directory or file paths
 const path = require('path');
+const express = require('express');
 
 // Import third-party package dependencies from the npm registry
 require('dotenv').config();
-const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const expressSession = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(
@@ -18,6 +18,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const handlebars = expressHandlebars.create({ helpers });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
 const session = {
   // Load the session secret from the SESSION_SECRET variable in the .env file
