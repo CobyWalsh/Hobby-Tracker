@@ -12,8 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // TODO: Replace location with req route
-      window.location.replace('/profile');
+      window.location.replace('/');
     } else {
       alert(response.statusText);
     }
@@ -35,8 +34,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // TODO: Replace location with req route
-      window.location.replace('/profile');
+      window.location.replace('/');
     } else {
       alert(response.statusText);
     }
