@@ -12,12 +12,26 @@ In our group project we created a hobby tracking web application. The motivation
 - [License](#license)
 
 ## Installation
-
+- Run npm i to install these dependensies/packages:
+- Install:
+    - Mysql2
+    - Express
+    - Express Sessions
+    - GraphicsMajicks
+    - Sequelize
+    - Handlebars
+    - Bcrypt
+    - Dotenv
+- run seed
+- npm start ( server will be listening on local host port )
 
 
 ## Usage
 
-
+![Alt text](<Screenshot 2023-08-07 at 6.00.23 PM.png>)
+![Alt text](<Screenshot 2023-08-07 at 5.48.36 PM.png>)
+![Alt text](<Screenshot 2023-08-07 at 5.49.13 PM.png>)
+![Alt text](<Screenshot 2023-08-07 at 6.01.07 PM.png>)
 
 ## Credits
 
