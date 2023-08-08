@@ -22,6 +22,7 @@ const logout = async () => {
     const logoutButton = document.querySelector('#logout');
     if (logoutButton) {
       logoutButton.addEventListener('click', logout);
+      logoutButton.classList.add('btn', 'btn-secondary'); // Add Bootstrap classes
     }
   });
   
